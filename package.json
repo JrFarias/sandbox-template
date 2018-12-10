@@ -1,0 +1,20 @@
+{
+  "name": "sandbox-template",
+  "description": "This a template application to documenting an API and test your integrations",
+  "version": "0.0.0",
+  "author": "Junior Farias <junioralberto19@gmail.com>",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.0.0",
+    "koa-route": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "swagger-koa": "^2.0.0"
+  },
+  "scripts": {
+    "start": "DEBUG=* node index.js"
+  }
+}
