@@ -15,7 +15,8 @@ const server = new Koa();
 const router = new Router();
 const port = process.env.PORT || 3000;
 
-const apis = `./src/api/${fs.readdirSync('src/api').join(',')}`;
+const apis = fs.readdirSync('src/api')
+  .reduce((acc, cur) => acc.concat([`./src/api/${cur}`]), []);
 
 server.use(swagger.init({
   apiVersion: '1.0',
@@ -24,7 +25,7 @@ server.use(swagger.init({
   swaggerURL: '/swagger',
   swaggerJSON: '/api-docs.json',
   swaggerUI: path.join(__dirname, 'public', 'swagger'),
-  apis: [apis]
+  apis,
 }));
 
 server.use(serve(path.join(__dirname, 'public')));
