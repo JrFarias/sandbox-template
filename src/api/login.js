@@ -15,7 +15,7 @@
  *      responseClass: User
  *      nickname: login
  *      consumes:
- *        - text/html
+ *        - application/json
  *      parameters:
  *        - name: username
  *          description: Your username

@@ -6,6 +6,7 @@ const serve = require('koa-static');
 const swagger = require('swagger-koa');
 const bodyParser = require('koa-bodyparser');
 const helmet = require('koa-helmet');
+const cors = require('koa-cors');
 
 require('dotenv').config();
 
@@ -18,6 +19,7 @@ const port = process.env.PORT || 3000;
 const apis = fs.readdirSync('src/api')
   .reduce((acc, cur) => acc.concat([`./src/api/${cur}`]), []);
 
+server.use(cors())
 server.use(swagger.init({
   apiVersion: '1.0',
   swaggerVersion: '1.0',

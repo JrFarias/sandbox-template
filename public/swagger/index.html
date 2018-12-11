@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Swagger UI</title>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
     <link href='css/hightlight.default.css' media='screen' rel='stylesheet' type='text/css'/>
@@ -17,59 +17,49 @@
     <script src='lib/highlight.7.3.pack.js' type='text/javascript'></script>
 
     <script type="text/javascript">
-	$(function () {
-	    window.swaggerUi = new SwaggerUi({
-                discoveryUrl: "http://localhost:3000/api-docs.json",
-                apiKey:"special-key",
-                dom_id:"swagger-ui-container",
-                supportHeaderParams: false,
-                supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
-                onComplete: function(swaggerApi, swaggerUi){
-                  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-                },
-                onFailure: function(data) {
-                	if(console) {
-                        console.log("Unable to Load SwaggerUI");
-                        console.log(data);
-                    }
-                },
-                docExpansion: "none"
-            });
-
-            window.swaggerUi.load();
+      $(function () {
+        window.swaggerUi = new SwaggerUi({
+          discoveryUrl: "http://localhost:3000/api-docs.json",
+          apiKey:"",
+          dom_id:"swagger-ui-container",
+          supportHeaderParams: false,
+          supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
+          onComplete: function(swaggerApi, swaggerUi) {
+            $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+          },
+          onFailure: function(data) {
+            if (console) {
+                console.log("Unable to Load SwaggerUI");
+                console.log(data);
+              }
+          },
+          docExpansion: "none"
         });
 
+        window.swaggerUi.load();
+      });
+
     </script>
-</head>
+  </head>
 
-<body>
-<div id='header'>
-    <div class="swagger-ui-wrap">
-        <a id="logo" href="http://swagger.wordnik.com">swagger</a>
-
-        <form id='api_selector'>
-            <div class='input icon-btn'>
-                <img id="show-pet-store-icon" src="images/pet_store_api.png" title="Show Swagger Petstore Example Apis">
+  <body>
+    <div id="header">
+      <div class="swagger-ui-wrap">
+          <a id="logo" href="#">swagger</a>
+          <form id="api_selector">
+            <div class="input">
+              <input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/>
             </div>
-            <div class='input icon-btn'>
-                <img id="show-wordnik-dev-icon" src="images/wordnik_api.png" title="Show Wordnik Developer Apis">
+            <div class="input">
+              <input placeholder="api-key" id="input_apiKey" name="apiKey" type="text"/>
             </div>
-            <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl"
-                                      type="text"/></div>
-            <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
-            <div class='input'><a id="explore" href="#">Explore</a></div>
-        </form>
+            <div class="input">
+              <a id="explore" href="#">Explore</a>
+            </div>
+          </form>
+      </div>
     </div>
-</div>
-
-<div id="message-bar" class="swagger-ui-wrap">
-    &nbsp;
-</div>
-
-<div id="swagger-ui-container" class="swagger-ui-wrap">
-
-</div>
-
-</body>
-
+    <div id="message-bar" class="swagger-ui-wrap"> &nbsp; </div>
+    <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+  </body>
 </html>
