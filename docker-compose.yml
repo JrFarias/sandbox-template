@@ -1,0 +1,15 @@
+version: '2'
+services:
+  app:
+    image: node:10.14.1-alpine
+    build: .
+    volumes:
+      - ./:/app
+    working_dir: /app
+    environment:
+      PORT: "3000"
+      HOST: http://localhost
+    ports:
+      - 3000:3000
+    command: >
+      sh -c "yarn && yarn start"
